@@ -120,8 +120,8 @@ float ArduinoControl(float inElapsedSinceLastCall, float inElapsedTimeSinceLastF
 		// Lectura del puerto serial
 		fReadFileSuccess = ReadFile(hComm, ReadBuffer, sizeof(ReadBuffer) - 1, &NumBytesRead, NULL);
 
-		// Obtener del buffer el caracter 17: 0 ó 1
-		buttonVal = &ReadBuffer[17];
+		// Obtener del buffer el primer byte: "0" ó "1"
+		buttonVal = &ReadBuffer[0];
 
 		// Convertir el caracter 17 a entero
 		value = (int)*buttonVal - 48;
